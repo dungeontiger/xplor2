@@ -4,14 +4,10 @@ var mustache = require('mustache');
 
 var app = express();
 
-app.use(express.static('public'));
-
-app.get('/', function (req, res) {
-  res.send('Xplor 2.0!')
-});
+app.use(express.static('node_modules'));
 
 // main page that renders an adventure, the 'game' page
-app.get('/adventure', function (req, res) {
+app.get('/', function (req, res) {
   var s = app.getHeader("Xplr 2 Adventure");
   s += '<div class="container bg-info" style="height:100%; overflow:auto">Messages go here</div>';
   s += app.getAdventureBar();
@@ -20,7 +16,7 @@ app.get('/adventure', function (req, res) {
   res.send(s);
 });
 
-app.listen(3000, function () {
+app.listen(8080, function () {
   console.log('Ready');
 });
 
