@@ -4,13 +4,12 @@ var mustache = require('mustache');
 
 var app = express();
 
-app.use(express.static('node_modules'));
+app.use(express.static('public'));
 
 // main page that renders an adventure, the 'game' page
 app.get('/', function (req, res) {
   var s = app.getHeader("Xplr 2 Adventure");
-  s += '<div class="container bg-info" style="height:100%; overflow:auto">Messages go here</div>';
-  s += app.getAdventureBar();
+  s += '<div class="container bg-info" style="background-repeat: no-repeat; background-image: url(\'images/landing.png\'); height:100%; overflow:auto"></div>';
   s += app.getFooter();
   
   res.send(s);

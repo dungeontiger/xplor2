@@ -1,5 +1,5 @@
 {
-  "name": "xpl0r2",
+  "name": "xplor2",
   "version": "1.0.0",
   "description": "Xplor2 Adventure System",
   "main": "app.js",
@@ -8,14 +8,17 @@
     "express": "^4.15.3",
     "mustache": "^2.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^3.5.3"
+  },
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test",
+    "prepare": "./setup.sh"
   },
-  "repository" :
-  { "type" : "git",
-    "url" : "https://github.com/dungeontiger/xplor2.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dungeontiger/xplor2.git"
   },
   "author": "DungeonTiger",
   "license": "ISC"
