@@ -8,8 +8,8 @@ app.use(express.static('public'));
 
 // main page that renders an adventure, the 'game' page
 app.get('/', function (req, res) {
-  var s = app.getHeader("Xplr 2 Adventure");
-  s += '<div class="container bg-info" style="background-repeat: no-repeat; background-image: url(\'images/landing.png\'); height:100%; overflow:auto"></div>';
+  var s = app.getHeader("Xplor 2 Adventure");
+  s += app.getLanding();
   s += app.getFooter();
   
   res.send(s);
@@ -18,6 +18,13 @@ app.get('/', function (req, res) {
 app.listen(8080, function () {
   console.log('Ready');
 });
+
+app.getLanding = function() {
+  if (!app.landing) {
+    app.landing = fs.readFileSync('templates/landing.html', 'utf8');
+  }
+  return mustache.render(app.landing);
+};
 
 app.getHeader = function(t) {
   if (!app.header) {
