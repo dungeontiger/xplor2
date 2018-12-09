@@ -1,0 +1,30 @@
+# container for the flask server
+FROM ubuntu
+
+# some label
+LABEL com.kingtigerbooks.xplor2-description="Xplor2 Gaming System"
+
+# refresh the install
+RUN apt-get update
+
+# install python 3 & stuff
+RUN apt-get -y install python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools
+
+# link python to python3
+RUN ln -s /usr/bin/python3.6 /usr/bin/python
+
+# copy files to container
+COPY ./wsgi.py /xplor2/server/
+COPY ./requirements.txt /xplor2/server/
+
+# change to the directory of the application
+WORKDIR /xplor2/server
+
+# install python requirements
+RUN python -m pip install -r requirements.txt
+
+# salamander listens on 80
+EXPOSE 80
+
+# start wsgi
+CMD ["uwsgi", "--socket", "0.0.0.0:80", "--protocol=http", "-w", "wsgi:app"]

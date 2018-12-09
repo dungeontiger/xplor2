@@ -1,0 +1,8 @@
+#
+## requirements file for python
+#
+wheel
+flask
+requests
+uwsgi
+psycopg2
