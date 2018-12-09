@@ -1,18 +1,20 @@
 <div class="container" style="background-repeat: no-repeat; background-image: url('images/landing.png'); height:100%; overflow:auto">
-<div class="row" style="padding-top:100px">
-<div class="col-md-6 landing-title text-center"><p>XPlor</p><p>Adventure Game</p></div>
-<div class="col-md-6">
-    <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1" class="landing-form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1" class="landing-form-label">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-default">Sign up</button>
-    </form>
-</div>
-</div>
+  <div class="row" style="padding-top:100px">
+    <div class="col-md-6 landing-title text-center">
+      <p>XPlor</p><p>Adventure Game</p><p>Sign up now to beging playing adventures and making your own!</p>
+    </div>
+    <div class="col-md-6">
+        <form method='post' action='users/landingSignup'>
+            <div class="form-group">
+              <label for="email" class="landing-form-label">Email address</label>
+              <input type="text" name="email" class="form-control" id="email" placeholder="Enter your email address">
+            </div>
+            <div class="form-group">
+              <label for="userId" class="landing-form-label">User Id</label>
+              <input type="text" name="userId" class="form-control" id="userId" placeholder="Choose a user id">
+            </div>
+            <button type="submit" class="btn btn-default">Sign up</button>
+        </form>
+    </div>
+  </div>
 </div>
